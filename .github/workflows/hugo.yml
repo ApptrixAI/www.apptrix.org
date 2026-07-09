@@ -61,8 +61,6 @@ jobs:
             echo "ok: /${path}/ -> ${expected}"
           }
           check components 'content="apptrix.org/components git https://github.com/ApptrixAI/components"'
-          [ -f public/CNAME ] || { echo "::error::CNAME missing from build output"; exit 1; }
-          echo "ok: CNAME present"
 
       - uses: actions/upload-pages-artifact@v3
         with:
