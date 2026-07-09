@@ -1,0 +1,46 @@
+{{ define "main" }}
+{{ $rel := site.Data.release }}
+{{ $live := and $rel.repo $rel.tag }}
+<article class="wrap">
+  <header class="page-head">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
+    {{ if $live }}
+      <p class="version-line">Community Build <strong>{{ $rel.tag }}</strong>{{ with $rel.basedOn }} &middot; based on {{ . }}{{ end }}</p>
+    {{ end }}
+  </header>
+
+  {{ if $live }}
+    <div class="downloads">
+      {{ range $rel.platforms }}
+        <a class="dl" href="https://github.com/{{ $rel.repo }}/releases/download/{{ $rel.tag }}/{{ .file }}">
+          <span class="dl-os">{{ .os }}</span>
+          <span class="dl-arch">{{ .arch }}</span>
+        </a>
+      {{ end }}
+    </div>
+    <p class="fineprint">
+      All builds are produced from tag <code>{{ $rel.tag }}</code> of
+      <a href="https://github.com/{{ $rel.repo }}">{{ $rel.repo }}</a>.
+      Use of the Community Build is governed by the <a href="/license/">Community License</a>.
+    </p>
+  {{ else }}
+    {{/* Renders until `repo` and `tag` are set in data/release.toml. */}}
+    <div class="notice">
+      <h2>Builds are on their way</h2>
+      <p>
+        The Community Build binaries are not published yet. Per-platform
+        downloads will appear here as soon as the first release is tagged.
+      </p>
+      <p>
+        In the meantime, you can trial the full platform, available from
+        <a href="{{ site.Params.fullSite }}/download">apptrix.ai/download</a>.
+      </p>
+    </div>
+  {{ end }}
+
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

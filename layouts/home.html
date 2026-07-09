@@ -1,0 +1,31 @@
+{{ define "main" }}
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Free for open source developers</p>
+    <h1>Native apps for every platform,<br><span class="grad">built graphically.</span></h1>
+    <p class="lede">{{ .Params.lede }}</p>
+    <p class="cta-row">
+      <a class="btn btn-primary" href="/download/">Get the Community Build</a>
+      <a class="btn btn-ghost" href="/open-source/">Browse the open source</a>
+    </p>
+    <p class="hero-note">No account. No token costs. Your code stays on your machine.</p>
+  </div>
+</section>
+
+<section class="wrap prose">
+  {{ .Content }}
+</section>
+
+<section class="wrap panels">
+  <a class="panel" href="/community/">
+    <h2>The Community Build</h2>
+    <p>The full Apptrix editor, free for open source projects. Design once, ship a real native binary to macOS, Windows, Linux, iOS and Android.</p>
+    <span class="panel-more">What's included &rarr;</span>
+  </a>
+  <a class="panel" href="/open-source/">
+    <h2>Open source components</h2>
+    <p>Widgets and libraries we build in the open for the Fyne ecosystem — usable in any Go app, Apptrix or not.</p>
+    <span class="panel-more">See the projects &rarr;</span>
+  </a>
+</section>
+{{ end }}

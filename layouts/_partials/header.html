@@ -1,0 +1,18 @@
+<a class="skip" href="#content">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/">
+      <img src="/favicon.png" alt="" width="28" height="28">
+      <span>Apptrix<span class="brand-dim">.org</span></span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        {{ range site.Menus.main }}
+          {{ $active := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
+          <li><a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+        {{ end }}
+        <li><a class="nav-cta" href="{{ site.Params.fullSite }}">Apptrix.ai&nbsp;&rarr;</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

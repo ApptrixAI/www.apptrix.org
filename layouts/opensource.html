@@ -1,0 +1,29 @@
+{{ define "main" }}
+<article class="wrap">
+  <header class="page-head">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
+  </header>
+
+  <div class="prose">
+    {{ .Content }}
+  </div>
+
+  <div class="projects">
+    {{ range site.Data.projects.project }}
+      <section class="project">
+        <h2><a href="{{ .repo }}">{{ .name }}</a></h2>
+        <p class="project-summary">{{ .summary }}</p>
+        <p class="project-detail">{{ .detail }}</p>
+        <dl class="project-meta">
+          {{ with .importPath }}
+            <div><dt>Import</dt><dd><code>{{ . }}</code></dd></div>
+          {{ end }}
+          <div><dt>License</dt><dd>{{ .license }}</dd></div>
+          <div><dt>Written in</dt><dd>{{ .languages }}</dd></div>
+        </dl>
+      </section>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

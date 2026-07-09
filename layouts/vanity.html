@@ -1,0 +1,33 @@
+{{/* Go module vanity import page.
+
+     The <meta name="go-import"> tag is emitted by partials/head.html from the
+     page's `goImport` front matter. Everything below is for humans; the Go
+     toolchain never renders it. Keep these pages reachable at their existing
+     paths — changing a URL here breaks `go get` for every dependent module. */}}
+{{ define "main" }}
+<article class="wrap vanity">
+  <header class="page-head">
+    <p class="eyebrow">Go module</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
+  </header>
+
+  {{ with .Params.importPath }}
+    <div class="code-block">
+      <span class="code-label">Install</span>
+      <code>go get {{ . }}@latest</code>
+    </div>
+  {{ end }}
+
+  <div class="prose">
+    {{ .Content }}
+  </div>
+
+  {{ with .Params.repo }}
+    <p class="cta-row">
+      <a class="btn btn-primary" href="{{ . }}">View on GitHub</a>
+      {{ with $.Params.docs }}<a class="btn btn-ghost" href="{{ . }}">Documentation</a>{{ end }}
+    </p>
+  {{ end }}
+</article>
+{{ end }}

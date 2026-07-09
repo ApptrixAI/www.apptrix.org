@@ -1,0 +1,37 @@
+# Apptrix Community Build release metadata.
+#
+# The download page renders live buttons only when `repo` and `tag` are both
+# set. Until then it shows a "coming soon" notice rather than dead links.
+#
+# Assets are resolved as:
+#   https://github.com/{repo}/releases/download/{tag}/{file}
+
+repo = ""      # e.g. "ApptrixAI/community"
+tag = ""       # e.g. "v0.2.13"
+version = "0.2.13"
+basedOn = "Apptrix v0.2.13"
+
+[[platforms]]
+  os = "macOS"
+  arch = "Apple silicon"
+  file = "Apptrix-Community-macOS-arm64.dmg"
+
+[[platforms]]
+  os = "macOS"
+  arch = "Intel"
+  file = "Apptrix-Community-macOS-amd64.dmg"
+
+[[platforms]]
+  os = "Windows"
+  arch = "64-bit"
+  file = "Apptrix-Community-Windows-amd64.zip"
+
+[[platforms]]
+  os = "Linux"
+  arch = "AMD64"
+  file = "Apptrix-Community-Linux-amd64.tar.xz"
+
+[[platforms]]
+  os = "Linux"
+  arch = "ARM64"
+  file = "Apptrix-Community-Linux-arm64.tar.xz"

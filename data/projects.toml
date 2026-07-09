@@ -1,0 +1,28 @@
+# Open source projects listed on /open-source/.
+
+[[project]]
+  name = "components"
+  repo = "https://github.com/ApptrixAI/components"
+  importPath = "apptrix.org/components"
+  license = "GPL-3.0-or-later OR Apptrix Commercial"
+  languages = "Go, C, Objective-C"
+  summary = "Advanced widgets for Fyne apps: a Chat interface with a small integration API, and a WebView backed by each system's native web engine."
+  detail = "WebView supports macOS, Windows, Linux (X11), Android and iOS. Wayland support is in progress."
+
+[[project]]
+  name = "telemetry"
+  repo = "https://github.com/ApptrixAI/telemetry"
+  importPath = "github.com/ApptrixAI/telemetry"
+  license = "See repository"
+  languages = "Go"
+  summary = "Session and error reporting for Fyne apps, targeting the Fyne Labs telemetry server or a backend of your own."
+  detail = "Drop it into an app with telemetry.Init, then report named events or errors. Stack traces are captured and uploaded automatically."
+
+[[project]]
+  name = "fyne-noos-demo"
+  repo = "https://github.com/ApptrixAI/fyne-noos-demo"
+  importPath = ""
+  license = "See repository"
+  languages = "Go, Makefile"
+  summary = "A demonstration of a Fyne app running with no operating system at all — booted directly, with no kernel underneath."
+  detail = "Builds with the Tamago and TinyGo compilers. Created with the kind support of Glasklar Teknik."

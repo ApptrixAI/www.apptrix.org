@@ -1,0 +1,38 @@
+baseURL = "https://apptrix.org/"
+languageCode = "en-gb"
+title = "Apptrix.org"
+enableRobotsTXT = true
+
+# Vanity import paths and the pages below rely on directory-style URLs
+# (/components/ -> /components/index.html), matching the pre-Hugo site.
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Apptrix is a platform for graphically building native apps for every platform. Home of the Apptrix Community Build, free for open source developers, and our open source components."
+  fullSite = "https://apptrix.ai"
+  github = "https://github.com/ApptrixAI"
+  email = "hello@apptrix.ai"
+
+[menu]
+  [[menu.main]]
+    name = "Community Build"
+    pageRef = "/community"
+    weight = 10
+  [[menu.main]]
+    name = "Download"
+    pageRef = "/download"
+    weight = 20
+  [[menu.main]]
+    name = "Open Source"
+    pageRef = "/open-source"
+    weight = 30
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+
+[minify]
+  disableHTML = true
