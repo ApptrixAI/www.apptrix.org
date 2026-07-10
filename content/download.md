@@ -4,6 +4,18 @@ layout: download
 lede: "The Apptrix Community Build, free for open source developers."
 ---
 
+## Running the macOS build
+
+The macOS downloads are not notarised, so macOS may warn that the app is
+damaged or from an unidentified developer. After downloading, clear the
+quarantine flag to run it:
+
+```
+sudo xattr -r -d com.apple.quarantine ~/Downloads/Apptrix_org.app
+```
+
+More detail is in the [Fyne troubleshooting guide](https://docs.fyne.io/faq/troubleshoot).
+
 ## Building your first app
 
 Apptrix produces a native binary, so it builds through the Go toolchain on your

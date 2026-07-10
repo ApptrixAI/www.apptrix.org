@@ -1,37 +1,44 @@
 # Apptrix Community Build release metadata.
 #
-# The download page renders live buttons only when `repo` and `tag` are both
-# set. Until then it shows a "coming soon" notice rather than dead links.
+# The download page renders live buttons when `baseURL` is set. Until then it
+# shows a "coming soon" notice rather than dead links.
 #
-# Assets are resolved as:
-#   https://github.com/{repo}/releases/download/{tag}/{file}
+# Each download URL is resolved by the download layout as:
+#   {baseURL}/{slug}/Apptrix_org-{slug}-{commit}.{ext}
+#
+# These point at the latest Community Build published to build-artifacts.apptrix.ai.
+# When a new build is published, update `commit` ONLY — every platform link is
+# derived from it.
 
-repo = ""      # e.g. "ApptrixAI/community"
-tag = ""       # e.g. "v0.2.13"
-version = "0.2.13"
-basedOn = "Apptrix v0.2.13"
-
-[[platforms]]
-  os = "macOS"
-  arch = "Apple silicon"
-  file = "Apptrix-Community-macOS-arm64.dmg"
+baseURL = "https://build-artifacts.apptrix.ai/github/andydotxyz/ApptrixAI/Apptrix/latest"
+commit = "1023b1a"
 
 [[platforms]]
   os = "macOS"
-  arch = "Intel"
-  file = "Apptrix-Community-macOS-amd64.dmg"
+  arch = "Apple Silicon (M-series)"
+  slug = "darwin-arm64"
+  ext = "zip"
+
+[[platforms]]
+  os = "macOS"
+  arch = "Intel processor"
+  slug = "darwin-amd64"
+  ext = "zip"
 
 [[platforms]]
   os = "Windows"
-  arch = "64-bit"
-  file = "Apptrix-Community-Windows-amd64.zip"
+  arch = "64-bit x86"
+  slug = "windows-amd64"
+  ext = "exe.zip"
 
 [[platforms]]
   os = "Linux"
   arch = "AMD64"
-  file = "Apptrix-Community-Linux-amd64.tar.xz"
+  slug = "linux-amd64"
+  ext = "tar.xz"
 
 [[platforms]]
   os = "Linux"
   arch = "ARM64"
-  file = "Apptrix-Community-Linux-arm64.tar.xz"
+  slug = "linux-arm64"
+  ext = "tar.xz"

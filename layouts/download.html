@@ -1,27 +1,27 @@
 {{ define "main" }}
 {{ $rel := site.Data.release }}
-{{ $live := and $rel.repo $rel.tag }}
+{{ $live := $rel.baseURL }}
 <article class="wrap">
   <header class="page-head">
     <h1>{{ .Title }}</h1>
     {{ with .Params.lede }}<p class="lede">{{ . }}</p>{{ end }}
     {{ if $live }}
-      <p class="version-line">Community Build <strong>{{ $rel.tag }}</strong>{{ with $rel.basedOn }} &middot; based on {{ . }}{{ end }}</p>
+      <p class="version-line">Community Build{{ with $rel.commit }} &middot; build <code>{{ . }}</code>{{ end }}</p>
     {{ end }}
   </header>
 
   {{ if $live }}
     <div class="downloads">
       {{ range $rel.platforms }}
-        <a class="dl" href="https://github.com/{{ $rel.repo }}/releases/download/{{ $rel.tag }}/{{ .file }}">
+        <a class="dl" href="{{ $rel.baseURL }}/{{ .slug }}/Apptrix_org-{{ .slug }}-{{ $rel.commit }}.{{ .ext }}">
           <span class="dl-os">{{ .os }}</span>
           <span class="dl-arch">{{ .arch }}</span>
         </a>
       {{ end }}
     </div>
     <p class="fineprint">
-      All builds are produced from tag <code>{{ $rel.tag }}</code> of
-      <a href="https://github.com/{{ $rel.repo }}">{{ $rel.repo }}</a>.
+      Builds are the latest Community Build published to
+      <a href="{{ $rel.baseURL }}/index.html">build-artifacts.apptrix.ai</a>{{ with $rel.commit }}, from commit <code>{{ . }}</code>{{ end }}.
       Use of the Community Build is governed by the <a href="/license/">Community License</a>.
     </p>
   {{ else }}
