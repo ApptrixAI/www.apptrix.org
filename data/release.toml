@@ -11,7 +11,7 @@
 # derived from it.
 
 baseURL = "https://build-artifacts.apptrix.ai/github/andydotxyz/ApptrixAI/Apptrix/latest"
-commit = "1023b1a"
+commit = "v0.2.14"
 
 [[platforms]]
   os = "macOS"
